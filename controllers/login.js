@@ -39,5 +39,24 @@ const register = async (req,res)=>{
         );
     
 }
-
-module.exports = {login,register};
+const companyregister = async (req,res)=>{
+  const {cname,cid,ccgpa} = req.body
+       
+        db.query(
+          "INSERT INTO company(cName,cID,cCGPA) VALUES(?,?,?)",
+          [cname,cid,ccgpa],
+          (err, result) => {
+            if(err)throw err;
+            return res.status(201).json({message:'company registered',success:true})
+          }
+        );
+    
+      
+}
+const getCompany = async (req,res)=>{
+    await db.query('select * from company',(err,result)=>{
+        if(err)throw err;
+            return res.status(201).json({message:'fetched',data:result})
+    })
+}
+module.exports = {login,register,companyregister,getCompany};
