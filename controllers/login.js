@@ -12,11 +12,11 @@ const login = async(req,res)=>{
             res.status(201).json({message:'logged in',data:result,success:true});
            }
            else{
-            res.status(400).json({message:"invalid creds",success:false});Loading
+            res.status(400).json({message:"invalid creds",success:false});//Loading
            }
     }
     else{
-    res.status(400).json({message:"invalid creds",success:false});Loading
+    res.status(400).json({message:"invalid creds",success:false});//Loading
    }
    }) 
 
